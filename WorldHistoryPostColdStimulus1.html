@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World History Quiz: World History</title>
+    <style>
+        /* Styling for the quiz */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        #quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #question-container {
+            margin-top: 20px;
+        }
+
+        .choice-button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .choice-button:hover {
+            background: #0056b3;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+        }
+
+        #next-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #next-button:disabled {
+            background: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>World History Quiz: Post Cold World STIMULUS1 Quiz</h1>
+        <div id="question-container"></div>
+        <button id="next-button">Next Question</button>
+        <div id="feedback"></div>
+    </div>
+    <script>
+        // JavaScript for quiz functionality
+        const questions = [
+{
+    question: "Excerpt from Woodrow Wilson's Fourteen Points Speech (1918): \n\n'We entered this war because violations of right had occurred which touched us to the quick and made the life of our own people impossible unless they were corrected and the world secured once for all against their recurrence. What we demand in this war, therefore, is nothing peculiar to ourselves. It is that the world be made fit and safe to live in.'\n\nBased on this excerpt, what was Wilson's primary goal?",
+    choices: [
+        "To expand U.S. territorial control",
+        "To promote a global order based on peace and justice",
+        "To punish Germany for its actions during World War I",
+        "To end colonial empires worldwide"
+    ],
+    correctAnswer: 1,
+    explanation: "Wilson's speech emphasizes creating a peaceful and just world order, which he outlined in his Fourteen Points."
+},
+{
+    question: "Excerpt from Winston Churchill's Iron Curtain Speech (1946): \n\n'From Stettin in the Baltic to Trieste in the Adriatic, an iron curtain has descended across the Continent. Behind that line lie all the capitals of the ancient states of Central and Eastern Europe...'\n\nWhat was Churchill warning against in this speech?",
+    choices: [
+        "The rise of fascism in Europe",
+        "The Soviet Union's expansion of communist influence in Eastern Europe",
+        "The formation of the European Union",
+        "The revival of German militarism"
+    ],
+    correctAnswer: 1,
+    explanation: "Churchill's Iron Curtain speech warned about the Soviet Union's expansion of communism across Eastern Europe."
+},
+{
+    question: "Excerpt from the Universal Declaration of Human Rights (1948): \n\n'All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.'\n\nWhat was the primary aim of this document?",
+    choices: [
+        "To promote religious tolerance globally",
+        "To establish fundamental rights for all individuals",
+        "To create a new economic system",
+        "To end colonialism in Africa"
+    ],
+    correctAnswer: 1,
+    explanation: "The Universal Declaration of Human Rights was designed to establish and protect fundamental rights and freedoms for all people."
+},
+{
+    question: "Excerpt from Mahatma Gandhi's Quit India Speech (1942): \n\n'Here is a mantra, a short one, that I give you. You may imprint it on your hearts and let every breath of yours give expression to it. The mantra is: “Do or die.” We shall either free India or die in the attempt.'\n\nWhat was the primary purpose of Gandhi's speech?",
+    choices: [
+        "To inspire nonviolent resistance against British rule",
+        "To call for an armed uprising against the British",
+        "To encourage Indians to emigrate",
+        "To promote industrialization in India"
+    ],
+    correctAnswer: 0,
+    explanation: "Gandhi's 'Quit India' speech called for nonviolent resistance to achieve independence from British colonial rule."
+},
+{
+    question: "Excerpt from Rachel Carson's Silent Spring (1962): \n\n'In nature nothing exists alone. The balance of nature is built on a series of interrelationships between living things, and between living things and their environment.'\n\nWhat concern does this excerpt highlight?",
+    choices: [
+        "The effects of industrialization on urban centers",
+        "The impact of human activity on environmental balance",
+        "The promotion of agricultural practices in developing countries",
+        "The benefits of technological advancements in industry"
+    ],
+    correctAnswer: 1,
+    explanation: "Rachel Carson's 'Silent Spring' discusses the environmental impact of pesticides, raising awareness about ecological interdependence."
+},
+{
+    question: "Excerpt from the Marshall Plan Speech (1947): \n\n'Our policy is directed not against any country or doctrine but against hunger, poverty, desperation, and chaos. Its purpose should be the revival of a working economy in the world so as to permit the emergence of political and social conditions in which free institutions can exist.'\n\nWhat was the goal of the Marshall Plan as described here?",
+    choices: [
+        "To promote global trade",
+        "To rebuild Europe after World War II and prevent the spread of communism",
+        "To reduce U.S. influence in Europe",
+        "To strengthen ties with the Soviet Union"
+    ],
+    correctAnswer: 1,
+    explanation: "The Marshall Plan aimed to rebuild war-torn Europe and prevent the spread of communism by stabilizing economies."
+},
+{
+    question: "Excerpt from the Camp David Accords (1978): \n\n'Israel will withdraw from the Sinai Peninsula in exchange for Egypt's recognition of Israel as a sovereign state.'\n\nWhat was a significant outcome of the Camp David Accords?",
+    choices: [
+        "The end of all conflict in the Middle East",
+        "The first peace treaty between Israel and an Arab nation",
+        "The establishment of Palestinian independence",
+        "The withdrawal of U.S. troops from the Middle East"
+    ],
+    correctAnswer: 1,
+    explanation: "The Camp David Accords marked the first peace treaty between Israel and Egypt, a significant step toward peace in the Middle East."
+},
+{
+    question: "Excerpt from Nelson Mandela's Inaugural Address (1994): \n\n'We understand it still that there is no easy road to freedom. We know it well that none of us acting alone can achieve success. We must therefore act together as a united people, for national reconciliation, for nation-building, for the birth of a new world.'\n\nWhat was Mandela emphasizing in this speech?",
+    choices: [
+        "The need for vengeance against apartheid supporters",
+        "The importance of unity and reconciliation in South Africa",
+        "The benefits of returning to colonial governance",
+        "The need for rapid economic expansion"
+    ],
+    correctAnswer: 1,
+    explanation: "Mandela's inaugural address emphasized unity and reconciliation to heal South Africa after apartheid."
+},
+{
+    question: "Excerpt from Al Gore’s Nobel Prize Speech (2007): \n\n'The climate crisis is not a political issue, it is a moral and spiritual challenge to all of humanity. It is also our greatest opportunity to lift global consciousness to a higher level.'\n\nWhat global issue does Gore highlight?",
+    choices: [
+        "Deforestation in the Amazon",
+        "The need for nuclear disarmament",
+        "Climate change and its moral implications",
+        "The rise of nationalism in Europe"
+    ],
+    correctAnswer: 2,
+    explanation: "Al Gore's speech focused on climate change, urging global action to address its environmental and ethical implications."
+},
+{
+    question: "Excerpt from Theodore Roosevelt’s 'Man with the Muckrake' Speech (1906): \n\n'The men with the muckrake are often indispensable to the well-being of society; but only if they know when to stop raking the muck.'\n\nWhat was Roosevelt's main message?",
+    choices: [
+        "Support for unrestricted freedom of the press",
+        "Criticism of excessive focus on corruption at the expense of solutions",
+        "Encouragement for journalists to expose all wrongdoing",
+        "Praise for corporate leaders in progressive reforms"
+    ],
+    correctAnswer: 1,
+    explanation: "Roosevelt warned that while exposing corruption is necessary, excessive focus without offering solutions can harm society."
+},
+{
+    question: "Excerpt from John F. Kennedy's Inaugural Address (1961): \n\n'And so, my fellow Americans: ask not what your country can do for you—ask what you can do for your country.'\n\nWhat theme does Kennedy emphasize in this address?",
+    choices: [
+        "Isolationism in global affairs",
+        "Civic responsibility and national service",
+        "Economic expansion through individualism",
+        "The benefits of reducing government influence"
+    ],
+    correctAnswer: 1,
+    explanation: "Kennedy’s speech urged citizens to contribute to their country through active service and civic responsibility."
+}
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionContainer = document.getElementById("question-container");
+        const feedbackContainer = document.getElementById("feedback");
+        const nextButton = document.getElementById("next-button");
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionContainer.innerHTML = `
+                <h2>${question.question}</h2>
+                ${question.choices.map((choice, index) => `
+                    <button class="choice-button" data-choice="${index}">${choice}</button>
+                `).join('')}
+            `;
+            feedbackContainer.innerHTML = "";
+            nextButton.style.display = "none";
+
+            const choiceButtons = document.querySelectorAll(".choice-button");
+            choiceButtons.forEach(button => {
+                button.addEventListener("click", (e) => {
+                    const userAnswer = parseInt(e.target.getAttribute("data-choice"));
+                    checkAnswer(userAnswer);
+                });
+            });
+        }
+
+        function checkAnswer(userAnswer) {
+            const question = questions[currentQuestion];
+            const isCorrect = userAnswer === question.correctAnswer;
+            feedbackContainer.innerHTML = `
+                <p>${isCorrect ? "Correct!" : "Incorrect."}</p>
+                <p>${isCorrect ? "" : `The correct answer is: ${question.choices[question.correctAnswer]}`}</p>
+                <p>${question.explanation}</p>
+            `;
+            if (isCorrect) score++;
+            nextButton.style.display = "block";
+
+            // Disable buttons after selecting an answer
+            const choiceButtons = document.querySelectorAll(".choice-button");
+            choiceButtons.forEach(button => button.disabled = true);
+        }
+
+        nextButton.addEventListener("click", () => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                questionContainer.innerHTML = `
+                    <h2>Quiz Complete!</h2>
+                    <p>Your Score: ${score} / ${questions.length}</p>
+                `;
+                nextButton.style.display = "none";
+            }
+        });
+
+        // Load the first question on startup
+        loadQuestion();
+    </script>
+</body>
+</html>
